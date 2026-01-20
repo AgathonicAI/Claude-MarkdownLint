@@ -13,16 +13,19 @@ Comprehensive guide to common markdownlint rules, what they catch, and how to fi
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Adjust the heading level to increment by exactly one
 - Consider if document structure needs reorganization
 
 **Example violation:**
+
 ```markdown
 # Main Title
 ### This skips h2  <!-- MD001 violation -->
 ```
 
 **Fixed:**
+
 ```markdown
 # Main Title
 ## This is now h2  <!-- Fixed -->
@@ -63,6 +66,7 @@ Comprehensive guide to common markdownlint rules, what they catch, and how to fi
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Make each heading unique by adding context
 - Common patterns:
   - "Setup" → "Database Setup", "Environment Setup"
@@ -80,6 +84,7 @@ Comprehensive guide to common markdownlint rules, what they catch, and how to fi
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Keep only one h1 (usually at the top)
 - Demote other h1s to h2
 
@@ -94,6 +99,7 @@ Comprehensive guide to common markdownlint rules, what they catch, and how to fi
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Add an h1 heading at the start
 - Or disable this rule if frontmatter/other content is intentional
 
@@ -166,6 +172,7 @@ Comprehensive guide to common markdownlint rules, what they catch, and how to fi
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Add appropriate language identifier
 - Common languages: `javascript`, `typescript`, `python`, `bash`, `json`, `yaml`, `markdown`
 - Use `text` or `plaintext` for plain text
@@ -207,6 +214,7 @@ code with language
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 1. Add the intended URL
 2. Or remove the link markup entirely
 3. Or mark as TODO: `[text](#TODO)`
@@ -222,6 +230,7 @@ code with language
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Add the missing reference definition at the bottom of the document
 - Or convert to inline link style
 
@@ -293,6 +302,7 @@ See [the docs][docs] for more.
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Break long lines at natural points
 - For prose: break at sentence boundaries
 - For code: consider if line really needs to be that long
@@ -310,6 +320,7 @@ See [the docs][docs] for more.
 **Auto-fixable:** No
 
 **Fix strategy:**
+
 - Convert to markdown equivalent if possible
 - Or disable rule if HTML is intentional (badges, details tags, etc.)
 
@@ -373,6 +384,7 @@ Rules can be configured in `.markdownlint.jsonc`:
 ```
 
 Common configurations:
+
 - `false` - disable rule
 - `true` - enable with defaults
 - `{ options }` - enable with custom options
