@@ -2,19 +2,8 @@
   "name": "Claude-MarkdownLint",
   "description": "Lint and fix markdown files with Claude-assisted repairs",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "tools": [
-    {
-      "name": "lint_markdown",
-      "description": "Check markdown files for style and formatting issues"
+  "author": {
+    "name": "Ben Hammersley",
+    "email": "ben@hammersleyfutures.com"
     },
-    {
-      "name": "fix_markdown",
-      "description": "Fix markdown linting issues (auto-fix and Claude-assisted)"
-    },
-    {
-      "name": "init_markdownlint_config",
-      "description": "Create a starter .markdownlint.jsonc configuration file"
-    }
-  ]
 }
