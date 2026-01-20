@@ -4,24 +4,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Purpose
 
-This repository contains a Claude Code skill that provides markdownlint capabilities - testing markdown files for style/format issues and automatically repairing them.
+A Claude Code plugin that provides markdownlint capabilities - linting markdown files for style/format issues and automatically repairing them, with Claude-assisted fixes for issues that can't be auto-fixed.
 
-## Skill Structure
+## Commands
 
-Claude Code skills are markdown files placed in `.claude/skills/` directories. They define reusable capabilities that can be invoked during sessions.
+- `npm install` - Install dependencies
+- `npm run build` - Compile TypeScript to dist/
+- `npm run watch` - Compile in watch mode
+- `npm test` - Run tests
+- `npm run lint` - Lint markdown files in this repo
 
-A skill file typically contains:
-- YAML frontmatter with `name` and `description` fields
-- Instructions for how Claude should perform the task
-- Any relevant commands, patterns, or workflows
+## Architecture
 
-## markdownlint Integration
+```
+src/
+├── index.ts              # Plugin entry point, exports all tools
+├── utils/
+│   ├── exec.ts           # Safe command execution with execFile
+│   ├── prerequisites.ts  # Node.js/npx availability checking
+│   └── git.ts            # Git integration for changed files
+├── core/
+│   ├── linter.ts         # markdownlint-cli2 runner and output parser
+│   ├── fixer.ts          # Auto-fix functionality
+│   └── config.ts         # Config file detection and creation
+└── tools/
+    ├── lint-markdown.ts  # lint_markdown MCP tool
+    ├── fix-markdown.ts   # fix_markdown MCP tool
+    └── init-config.ts    # init_markdownlint_config MCP tool
+```
 
-The skill should leverage the `markdownlint-cli2` tool:
-- **Lint files**: `npx markdownlint-cli2 "**/*.md"`
-- **Fix automatically**: `npx markdownlint-cli2 --fix "**/*.md"`
-- **Lint specific file**: `npx markdownlint-cli2 path/to/file.md`
+## MCP Tools
 
-Configuration files supported:
-- `.markdownlint.jsonc` or `.markdownlint.json` - rule configuration
-- `.markdownlint-cli2.jsonc` - CLI-specific options including globs and ignores
+- **lint_markdown** - Check markdown files for issues
+- **fix_markdown** - Auto-fix issues, report remaining for Claude assistance
+- **init_markdownlint_config** - Create starter .markdownlint.jsonc
