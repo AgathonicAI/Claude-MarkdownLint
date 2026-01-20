@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Claude Code plugin for linting and fixing markdown files",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
+  "bin": {
+    "markdownlint-mcp": "dist/server.js"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
@@ -11,6 +14,7 @@
     "lint": "markdownlint-cli2 '**/*.md' '#node_modules'"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
     "markdownlint-cli2": "^0.13.0"
   },
   "devDependencies": {

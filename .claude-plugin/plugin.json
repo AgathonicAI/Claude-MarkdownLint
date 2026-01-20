@@ -1,0 +1,12 @@
+{
+  "name": "markdownlint",
+  "description": "Lint and fix markdown files with Claude-assisted repairs",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ben Hammersley",
+    "email": "ben@hammersleyfutures.com"
+  },
+  "repository": "https://github.com/AgathonicAI/claude-skill-markdownlint",
+  "license": "MIT",
+  "keywords": ["markdown", "linting", "formatting", "documentation"]
+}
