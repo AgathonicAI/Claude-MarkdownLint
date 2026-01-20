@@ -1,4 +1,4 @@
-# claude-skill-markdownlint
+# Claude-MarkdownLint
 
 A Claude Code plugin for linting and fixing markdown files using markdownlint.
 
@@ -13,7 +13,7 @@ A Claude Code plugin for linting and fixing markdown files using markdownlint.
 ## Installation
 
 ```bash
-claude plugins add github:username/claude-skill-markdownlint
+claude plugins add AgathonicAI/Claude-MarkdownLint
 ```
 
 ## Usage
