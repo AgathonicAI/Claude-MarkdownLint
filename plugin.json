@@ -1,9 +1,0 @@
-{
-  "name": "Claude-MarkdownLint",
-  "description": "Lint and fix markdown files with Claude-assisted repairs",
-  "version": "1.0.0",
-  "author": {
-    "name": "Ben Hammersley",
-    "email": "ben@hammersleyfutures.com"
-    }
-}

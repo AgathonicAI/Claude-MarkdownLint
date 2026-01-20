@@ -1,0 +1,28 @@
+{
+  "description": "Markdownlint plugin hooks: auto-setup and proactive linting",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/scripts/setup.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if a markdown file (.md) was just edited by examining the tool input. If the file path ends with .md, call the markdownlint MCP server's lint_markdown tool with that file. If issues are found, report them concisely and ask: 'Would you like me to fix these?' If the user agrees, call fix_markdown. Be completely silent if the file is not markdown or if no issues are found."
+          }
+        ]
+      }
+    ]
+  }
+}
