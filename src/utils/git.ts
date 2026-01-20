@@ -1,4 +1,5 @@
 // src/utils/git.ts
+import { readdir } from 'node:fs/promises';
 import { execCommand } from './exec.js';
 
 export async function isGitRepo(): Promise<boolean> {
@@ -49,17 +50,16 @@ export async function getChangedMarkdownFiles(): Promise<string[]> {
 }
 
 async function getAllMarkdownFiles(): Promise<string[]> {
-  const result = await execCommand('find', [
-    '.',
-    '-name',
-    '*.md',
-    '-not',
-    '-path',
-    './node_modules/*',
-  ]);
+  // Use Node.js fs APIs for cross-platform compatibility (no Unix find command)
+  const files = await readdir('.', { recursive: true });
 
-  return result.stdout
-    .split('\n')
-    .filter((f) => f.length > 0)
-    .map((f) => f.replace(/^\.\//, ''));
+  return files
+    .filter(
+      (f) =>
+        f.endsWith('.md') &&
+        !f.startsWith('node_modules') &&
+        !f.includes('/node_modules/') &&
+        !f.includes('\\node_modules\\')
+    )
+    .map((f) => f.replace(/\\/g, '/')); // Normalize path separators
 }

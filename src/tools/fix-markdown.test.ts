@@ -2,7 +2,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { fixMarkdownTool } from './fix-markdown.js';
-import { writeFileSync, readFileSync, mkdirSync, rmSync } from 'node:fs';
+import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 
 describe('fixMarkdownTool', () => {
   const testDir = `./test-fixtures-fix-${process.pid}-${Date.now()}`;

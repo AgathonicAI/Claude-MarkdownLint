@@ -31,8 +31,8 @@ export async function initConfigTool(
       return {
         success: true,
         created: false,
-        path: result.existingPath!,
-        message: `Markdownlint config already exists at ${result.existingPath}. No changes made.`,
+        path: result.path,
+        message: `Markdownlint config already exists at ${result.path}. No changes made.`,
       };
     }
   } catch (error) {

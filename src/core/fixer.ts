@@ -30,12 +30,10 @@ export async function autoFix(files: string[]): Promise<FixResult> {
   const beforeResult = await runMarkdownlint(files);
   const beforeCount = beforeResult.issues.length;
 
-  // Run markdownlint-cli2 with --fix
-  const result = await execCommand('npx', [
-    'markdownlint-cli2',
-    '--fix',
-    ...files,
-  ]);
+  // Run markdownlint-cli2 with --fix (60-second timeout)
+  await execCommand('npx', ['markdownlint-cli2', '--fix', ...files], {
+    timeout: 60000,
+  });
 
   // Re-lint to see what remains
   const afterResult = await runMarkdownlint(files);

@@ -33,8 +33,10 @@ export async function runMarkdownlint(files: string[]): Promise<LintResult> {
     return { success: true, issues: [] };
   }
 
-  // Run markdownlint-cli2
-  const result = await execCommand('npx', ['markdownlint-cli2', ...files]);
+  // Run markdownlint-cli2 with a 60-second timeout to prevent hanging
+  const result = await execCommand('npx', ['markdownlint-cli2', ...files], {
+    timeout: 60000,
+  });
 
   // Exit code 0 = no issues, 1 = issues found, other = error
   if (result.exitCode === 0) {

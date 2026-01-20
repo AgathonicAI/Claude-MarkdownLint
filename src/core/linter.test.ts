@@ -1,15 +1,18 @@
 // src/core/linter.test.ts
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { runMarkdownlint, LintResult } from './linter.js';
+import { runMarkdownlint } from './linter.js';
 import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 
 describe('runMarkdownlint', () => {
-  const testDir = `./test-fixtures-linter-${process.pid}-${Date.now()}`;
-  const testFile = `${testDir}/test.md`;
+  // Create fresh directory paths per test run to avoid collisions
+  let testDir: string;
+  let testFile: string;
 
   // Setup and teardown
   const setup = () => {
+    testDir = `./test-fixtures-linter-${process.pid}-${Date.now()}`;
+    testFile = `${testDir}/test.md`;
     mkdirSync(testDir, { recursive: true });
   };
 

@@ -1,12 +1,13 @@
 // src/core/fixer.test.ts
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { autoFix, FixResult } from './fixer.js';
+import { autoFix } from './fixer.js';
 import { writeFileSync, readFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 
 describe('autoFix', () => {
-  const testDir = './test-fixtures-fixer';
+  // Use unique directory name to avoid collisions in parallel test runs
+  const testDir = `./test-fixtures-fixer-${process.pid}-${Date.now()}`;
 
   const setup = () => {
     mkdirSync(testDir, { recursive: true });

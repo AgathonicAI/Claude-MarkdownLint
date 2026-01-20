@@ -1,7 +1,7 @@
 // src/core/config.test.ts
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { initConfig, findExistingConfig, STARTER_CONFIG } from './config.js';
+import { initConfig, findExistingConfig } from './config.js';
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 
 describe('findExistingConfig', () => {
