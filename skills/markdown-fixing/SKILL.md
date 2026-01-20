@@ -11,6 +11,7 @@ Guidance for manually fixing markdown issues that markdownlint cannot auto-fix, 
 ## When This Skill Activates
 
 This skill activates when:
+
 - The `fix_markdown` MCP tool reports remaining issues after auto-fix
 - A user asks for help fixing specific markdownlint violations
 - Manual intervention is needed for issues markdownlint cannot automatically repair
@@ -20,6 +21,7 @@ This skill activates when:
 ### Minimal Changes
 
 Make only the changes necessary to fix the specific issue:
+
 - Do not reformat surrounding content
 - Do not "improve" unrelated sections
 - Do not add or remove content beyond what's needed
@@ -27,6 +29,7 @@ Make only the changes necessary to fix the specific issue:
 ### Verify After Fixing
 
 After applying a fix:
+
 1. Re-run `lint_markdown` on the affected file
 2. Confirm the issue is resolved
 3. Check that no new issues were introduced
@@ -34,6 +37,7 @@ After applying a fix:
 ### When Uncertain
 
 If a fix is ambiguous or could break intended formatting:
+
 - Show the user the current state
 - Explain the issue and potential fixes
 - Ask which approach they prefer
@@ -58,12 +62,14 @@ If a fix is ambiguous or could break intended formatting:
 Headings must increment by one level (h1 → h2 → h3, not h1 → h3).
 
 Before:
+
 ```markdown
 # Title
 ### Subsection  <!-- Error: skipped h2 -->
 ```
 
 After:
+
 ```markdown
 # Title
 ## Subsection  <!-- Fixed: now h2 -->
@@ -74,6 +80,7 @@ After:
 Headings need blank lines before and after (except at document start).
 
 Before:
+
 ```markdown
 Some text.
 ## Heading
@@ -81,6 +88,7 @@ More text.
 ```
 
 After:
+
 ```markdown
 Some text.
 
@@ -94,6 +102,7 @@ More text.
 Same heading text appears multiple times. Fix by making each unique.
 
 Before:
+
 ```markdown
 ## Setup
 ...
@@ -101,6 +110,7 @@ Before:
 ```
 
 After:
+
 ```markdown
 ## Setup
 ...
@@ -114,6 +124,7 @@ After:
 Code blocks need blank lines before and after.
 
 Before:
+
 ```markdown
 Some text:
 \`\`\`javascript
@@ -123,6 +134,7 @@ More text.
 ```
 
 After:
+
 ```markdown
 Some text:
 
@@ -140,16 +152,19 @@ More text.
 Links with no URL. Either add destination or remove link markup.
 
 Before:
+
 ```markdown
 Click [here]() for more.
 ```
 
 After (option 1 - add URL):
+
 ```markdown
 Click [here](https://example.com) for more.
 ```
 
 After (option 2 - remove link):
+
 ```markdown
 Click here for more.
 ```
@@ -167,6 +182,7 @@ To fix: Ensure file ends with `\n` but not `\n\n`.
 ### When User Declines a Fix
 
 If a user declines a suggested fix:
+
 1. Call `decline_fix` MCP tool with file, line, and ruleId
 2. The issue will be hidden from future lint results this session
 3. Inform user: "I won't prompt about this issue again this session."
@@ -174,6 +190,7 @@ If a user declines a suggested fix:
 ### Batch Fixing
 
 When multiple similar issues exist, offer batch fixes:
+
 - "Found 5 MD022 violations in README.md. Fix all of them?"
 - If yes, apply all fixes in one edit operation
 - Re-lint once after all fixes applied
@@ -193,6 +210,7 @@ When multiple similar issues exist, offer batch fixes:
 ### Proactive Hook Context
 
 When activated by the PostToolUse hook after a markdown edit:
+
 1. Issues found immediately after editing
 2. Offer to fix: "Found 2 markdown issues. Want me to fix them?"
 3. If yes, apply auto-fix first, then handle remaining manually

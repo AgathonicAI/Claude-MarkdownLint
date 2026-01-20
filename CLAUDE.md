@@ -17,16 +17,15 @@ A Claude Code plugin that provides markdownlint capabilities - linting markdown 
 ## Plugin Architecture
 
 ```
-.claude-plugin/plugin.json  # Plugin manifest
-.mcp.json                   # MCP server configuration
+.claude-plugin/plugin.json  # Plugin manifest + MCP server config
 commands/                   # Slash commands
-  ├── lint.md              # /markdownlint:lint
-  ├── fix.md               # /markdownlint:fix
-  └── init.md              # /markdownlint:init
+  ├── lint-markdown.md     # /markdownlint:lint-markdown
+  ├── fix-markdown.md      # /markdownlint:fix-markdown
+  └── init-markdownlint.md # /markdownlint:init-markdownlint
 skills/markdown-fixing/     # Claude-assisted fix guidance
   ├── SKILL.md
   └── references/rules.md
-hooks/hooks.json            # PostToolUse auto-linting hook
+hooks/hooks.json            # SessionStart setup + PostToolUse auto-linting
 ```
 
 ## MCP Server Architecture

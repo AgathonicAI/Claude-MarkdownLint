@@ -23,7 +23,7 @@ Check markdown files for issues using markdownlint.
    - If no issues: Report success briefly
    - If issues found: Show them grouped by file with line numbers and rule IDs
    - Mention how many are auto-fixable
-   - Suggest running `/markdownlint:fix` if issues were found
+   - Suggest running `/markdownlint:fix-markdown` if issues were found
 
 ## Example Output
 
@@ -39,7 +39,7 @@ Found 3 issues in 2 files:
 **docs/guide.md**
 - Line 8: MD001 - Heading levels should only increment by one level at a time
 
-2 issues are auto-fixable. Run `/markdownlint:fix` to fix them.
+2 issues are auto-fixable. Run `/markdownlint:fix-markdown` to fix them.
 ```
 
 When no issues:

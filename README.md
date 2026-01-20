@@ -31,9 +31,9 @@ claude plugins add AgathonicAI/claude-skill-markdownlint
 Check markdown files for issues.
 
 ```bash
-/markdownlint:lint                    # Lint changed files (git diff)
-/markdownlint:lint --scope all        # Lint all markdown files
-/markdownlint:lint --files README.md  # Lint specific files
+/markdownlint:lint-markdown                    # Lint changed files (git diff)
+/markdownlint:lint-markdown --scope all        # Lint all markdown files
+/markdownlint:lint-markdown --files README.md  # Lint specific files
 ```
 
 ### `/markdownlint:fix-markdown`
@@ -41,9 +41,9 @@ Check markdown files for issues.
 Fix markdown issues (auto-fix first, then Claude-assisted).
 
 ```bash
-/markdownlint:fix                     # Fix changed files
-/markdownlint:fix --auto-only         # Only apply auto-fixes
-/markdownlint:fix --files docs/*.md   # Fix specific files
+/markdownlint:fix-markdown                     # Fix changed files
+/markdownlint:fix-markdown --auto-only         # Only apply auto-fixes
+/markdownlint:fix-markdown --files docs/*.md   # Fix specific files
 ```
 
 ### `/markdownlint:init-markdownlint`
@@ -66,7 +66,7 @@ To disable proactive linting, disable the plugin's hooks in your Claude Code set
 
 Linting rules are configured in `.markdownlint.jsonc` (standard markdownlint config).
 
-Run `/markdownlint:init` to create a starter config with sensible defaults:
+Run `/markdownlint:init-markdownlint` to create a starter config with sensible defaults:
 
 - Disabled: MD013 (line length), MD033 (inline HTML), MD041 (first line heading)
 - Enabled: All other rules
@@ -98,11 +98,10 @@ The plugin provides an MCP server with these tools:
 
 ```text
 markdownlint/
-├── .claude-plugin/plugin.json  # Plugin manifest
-├── .mcp.json                   # MCP server config
+├── .claude-plugin/plugin.json  # Plugin manifest + MCP server config
 ├── commands/                   # Slash commands
 ├── skills/markdown-fixing/     # Claude-assisted fix guidance
-├── hooks/hooks.json            # PostToolUse hook for auto-linting
+├── hooks/hooks.json            # SessionStart setup + PostToolUse auto-linting
 └── src/                        # MCP server (TypeScript)
 ```
 
