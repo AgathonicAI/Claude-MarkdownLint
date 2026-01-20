@@ -1,5 +1,5 @@
 ---
-name: init
+name: init-markdownlint
 description: Create a starter .markdownlint.jsonc configuration file
 allowed-tools:
   - mcp__plugin_markdownlint_markdownlint__init_markdownlint_config
@@ -20,6 +20,7 @@ Create a starter `.markdownlint.jsonc` configuration file with sensible defaults
 ## Starter Config Explanation
 
 The starter config:
+
 - Enables most rules by default (`"default": true`)
 - Disables commonly problematic rules:
   - **MD013** (line-length): Often impractical for prose
@@ -35,7 +36,7 @@ The starter config:
 
 ## Example Output
 
-```
+```text
 Created .markdownlint.jsonc with starter configuration.
 
 Rules configured:

@@ -1,5 +1,5 @@
 ---
-name: fix
+name: fix-markdown
 description: Auto-fix markdown issues, with Claude assistance for non-fixable ones
 allowed-tools:
   - mcp__plugin_markdownlint_markdownlint__fix_markdown
@@ -44,13 +44,14 @@ When fixing issues manually:
 - **MD047 (single-trailing-newline)**: Ensure file ends with exactly one newline
 
 Always:
+
 - Show the user what change you'll make before applying it
 - Make minimal changes - only fix the specific issue
 - Re-lint after fixing to verify the issue is resolved
 
 ## Example Interaction
 
-```
+```text
 Auto-fixed 2 issues.
 
 1 issue remaining:
