@@ -1,6 +1,6 @@
 // src/tools/lint-markdown.ts
 import { runMarkdownlint, LintIssue } from '../core/linter.js';
-import { getChangedMarkdownFiles } from '../utils/git.js';
+import { getChangedMarkdownFiles, getAllMarkdownFiles } from '../utils/git.js';
 
 export interface LintMarkdownParams {
   files?: string[];
@@ -28,8 +28,8 @@ export async function lintMarkdownTool(
   } else if (scope === 'changed') {
     filesToLint = await getChangedMarkdownFiles();
   } else {
-    // scope === 'all' - would need to implement getAllMarkdownFiles
-    filesToLint = await getChangedMarkdownFiles(); // fallback for now
+    // scope === 'all'
+    filesToLint = await getAllMarkdownFiles();
   }
 
   if (filesToLint.length === 0) {

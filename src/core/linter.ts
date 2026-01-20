@@ -2,6 +2,14 @@
 import { execCommand } from '../utils/exec.js';
 import { checkPrerequisites } from '../utils/prerequisites.js';
 
+// Rules that markdownlint-cli2 can auto-fix with --fix
+const AUTO_FIXABLE_RULES = new Set([
+  'MD003', 'MD004', 'MD005', 'MD007', 'MD009', 'MD010',
+  'MD012', 'MD022', 'MD023', 'MD027', 'MD030', 'MD031',
+  'MD032', 'MD034', 'MD037', 'MD038', 'MD039', 'MD044',
+  'MD047', 'MD049', 'MD050', 'MD051', 'MD053', 'MD054',
+]);
+
 export interface LintIssue {
   file: string;
   line: number;
@@ -87,7 +95,7 @@ function parseMarkdownlintOutput(output: string): LintIssue[] {
       ruleId,
       ruleDescription: `${ruleName}: ${description}`,
       message: details || description,
-      fixable: false, // Cannot determine from text output
+      fixable: AUTO_FIXABLE_RULES.has(ruleId),
     });
   }
 

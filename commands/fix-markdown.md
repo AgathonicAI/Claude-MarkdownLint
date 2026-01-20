@@ -16,11 +16,21 @@ Fix markdown issues using markdownlint auto-fix, then offer Claude-assisted fixe
 
 ## Execution Steps
 
-1. Parse any arguments provided:
+1. Parse any arguments provided from the user's command:
    - `--auto-only`: Only apply markdownlint auto-fixes, don't offer Claude assistance
    - `--files <paths>`: Fix specific files (default: changed files in git)
 
-2. Call the `fix_markdown` MCP tool with the parsed parameters
+   **Argument Parsing:**
+   - If user says `/fix-markdown --auto-only` → use `auto_only: true`
+   - If user says `/fix-markdown --files README.md` → use `files: ["README.md"]`
+   - If user says `/fix-markdown --auto-only --files docs/*.md` → use both parameters
+   - If user says `/fix-markdown` with no args → use defaults (changed files, with Claude assistance)
+
+2. Call the `fix_markdown` MCP tool with the parsed parameters:
+   - Default: `{}`
+   - Auto-only: `{ "auto_only": true }`
+   - Specific files: `{ "files": ["path1.md", "path2.md"] }`
+   - Combined: `{ "auto_only": true, "files": ["path1.md"] }`
 
 3. Report auto-fix results:
    - How many issues were auto-fixed

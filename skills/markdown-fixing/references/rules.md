@@ -178,6 +178,7 @@ Comprehensive guide to common markdownlint rules, what they catch, and how to fi
 - Use `text` or `plaintext` for plain text
 
 **Example:**
+
 ```markdown
 \`\`\`
 code without language
@@ -185,6 +186,7 @@ code without language
 ```
 
 Fixed:
+
 ```markdown
 \`\`\`javascript
 code with language
@@ -235,12 +237,14 @@ code with language
 - Or convert to inline link style
 
 **Example violation:**
+
 ```markdown
 See [the docs][docs] for more.
 <!-- Missing: [docs]: https://... -->
 ```
 
 **Fixed:**
+
 ```markdown
 See [the docs][docs] for more.
 
@@ -403,6 +407,7 @@ Disable rules for specific content:
 ```
 
 Or for single line:
+
 ```markdown
 <!-- markdownlint-disable-next-line MD013 -->
 This is a very long line that would normally violate the line length rule but is allowed here.

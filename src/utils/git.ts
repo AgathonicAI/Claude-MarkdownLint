@@ -49,7 +49,7 @@ export async function getChangedMarkdownFiles(): Promise<string[]> {
   return mdFiles;
 }
 
-async function getAllMarkdownFiles(): Promise<string[]> {
+export async function getAllMarkdownFiles(): Promise<string[]> {
   // Use Node.js fs APIs for cross-platform compatibility (no Unix find command)
   const files = await readdir('.', { recursive: true });
 
@@ -60,6 +60,8 @@ async function getAllMarkdownFiles(): Promise<string[]> {
       (f) =>
         f.endsWith('.md') &&
         !f.startsWith('node_modules/') &&
-        !f.includes('/node_modules/')
+        !f.includes('/node_modules/') &&
+        !f.startsWith('dist/') &&
+        !f.includes('/dist/')
     );
 }

@@ -19,7 +19,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Check if a markdown file (.md) was just edited by examining the tool input. If the file path ends with .md, call the markdownlint MCP server's lint_markdown tool with that file. If issues are found, report them concisely and ask: 'Would you like me to fix these?' If the user agrees, call fix_markdown. Be completely silent if the file is not markdown or if no issues are found."
+            "prompt": "Check the file path in the tool input. If it does NOT end with .md or .MD, do nothing and produce no output. If it ends with .md or .MD, call lint_markdown on that file. If issues found, report briefly and offer to fix. If no issues, produce no output."
           }
         ]
       }
