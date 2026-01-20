@@ -16,7 +16,7 @@ A Claude Code plugin that provides markdownlint capabilities - linting markdown 
 
 ## Plugin Architecture
 
-```
+```text
 .claude-plugin/plugin.json  # Plugin manifest
 .mcp.json                   # MCP server configuration
 commands/                   # Slash commands
@@ -31,7 +31,7 @@ hooks/hooks.json            # PostToolUse auto-linting hook
 
 ## MCP Server Architecture
 
-```
+```text
 src/
 ├── server.ts             # MCP server entry point (stdio transport)
 ├── index.ts              # Tool exports
