@@ -94,6 +94,32 @@ The plugin provides an MCP server with these tools:
 | `get_declined_fixes` | List declined issues |
 | `clear_declined_fixes` | Reset declined list |
 
+## Troubleshooting
+
+### MCP tools not available
+
+If the `/markdownlint:lint-markdown` command says the MCP tool is unavailable:
+
+1. **Restart Claude Code** - MCP servers are registered at startup. After installing the plugin, restart Claude Code.
+
+2. **Check plugin installation** - Run `claude plugins list` to verify the plugin is installed.
+
+3. **Manual server test** - Test the MCP server directly:
+
+   ```bash
+   echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | node ~/.claude/plugins/cache/AgathonicAI-claude-skill-markdownlint/dist/server.js
+   ```
+
+4. **Check build** - Ensure the server was built. The SessionStart hook should build it automatically, but you can run `npm run build` in the plugin directory.
+
+### Commands work but MCP tools don't
+
+The commands can still work without MCP by using `npx markdownlint-cli2` directly, but the full MCP integration requires the server to be running. The MCP server provides:
+
+- Structured JSON responses for issue tracking
+- Session state for declined fixes
+- Proper tool integration with Claude Code
+
 ## Architecture
 
 ```text

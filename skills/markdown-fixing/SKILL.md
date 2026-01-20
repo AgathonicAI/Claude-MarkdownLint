@@ -57,7 +57,7 @@ If a fix is ambiguous or could break intended formatting:
 
 ### Heading Issues
 
-**MD001 - Heading Increment**
+#### MD001 - Heading Increment
 
 Headings must increment by one level (h1 → h2 → h3, not h1 → h3).
 
@@ -75,7 +75,7 @@ After:
 ## Subsection  <!-- Fixed: now h2 -->
 ```
 
-**MD022 - Blanks Around Headings**
+#### MD022 - Blanks Around Headings
 
 Headings need blank lines before and after (except at document start).
 
@@ -97,7 +97,7 @@ Some text.
 More text.
 ```
 
-**MD024 - Duplicate Headings**
+#### MD024 - Duplicate Headings
 
 Same heading text appears multiple times. Fix by making each unique.
 
@@ -119,7 +119,7 @@ After:
 
 ### Code Block Issues
 
-**MD031 - Blanks Around Fences**
+#### MD031 - Blanks Around Fences
 
 Code blocks need blank lines before and after.
 
@@ -147,7 +147,7 @@ More text.
 
 ### Link Issues
 
-**MD042 - Empty Links**
+#### MD042 - Empty Links
 
 Links with no URL. Either add destination or remove link markup.
 
@@ -171,7 +171,7 @@ Click here for more.
 
 ### File Structure Issues
 
-**MD047 - Single Trailing Newline**
+#### MD047 - Single Trailing Newline
 
 File must end with exactly one newline character.
 

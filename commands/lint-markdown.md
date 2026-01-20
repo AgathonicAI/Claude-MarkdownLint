@@ -12,12 +12,20 @@ Check markdown files for issues using markdownlint.
 
 ## Execution Steps
 
-1. Parse any arguments provided:
+1. Parse any arguments provided from the user's command:
    - `--scope changed` (default): Lint files changed in git
    - `--scope all`: Lint all markdown files
    - `--files <paths>`: Lint specific files
 
-2. Call the `lint_markdown` MCP tool with the parsed parameters
+   **Argument Parsing:**
+   - If user says `/lint-markdown --scope all` → use `scope: "all"`
+   - If user says `/lint-markdown --files README.md docs/guide.md` → use `files: ["README.md", "docs/guide.md"]`
+   - If user says `/lint-markdown` with no args → use `scope: "changed"` (default)
+   - The `--files` flag takes precedence over `--scope`
+
+2. Call the `lint_markdown` MCP tool with the parsed parameters:
+   - For scope: `{ "scope": "changed" }` or `{ "scope": "all" }`
+   - For files: `{ "files": ["path1.md", "path2.md"] }`
 
 3. Present results to the user:
    - If no issues: Report success briefly

@@ -60,6 +60,8 @@ export async function getAllMarkdownFiles(): Promise<string[]> {
       (f) =>
         f.endsWith('.md') &&
         !f.startsWith('node_modules/') &&
-        !f.includes('/node_modules/')
+        !f.includes('/node_modules/') &&
+        !f.startsWith('dist/') &&
+        !f.includes('/dist/')
     );
 }
