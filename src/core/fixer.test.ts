@@ -25,6 +25,7 @@ describe('autoFix', () => {
       writeFileSync(testFile, '# Heading   \n\nContent\n');
       const result = await autoFix([testFile]);
       assert.strictEqual(result.success, true);
+      assert.ok(result.fixedCount > 0, 'Should report at least one issue was fixed');
 
       // Verify file was modified
       const content = readFileSync(testFile, 'utf-8');

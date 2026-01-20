@@ -53,13 +53,13 @@ async function getAllMarkdownFiles(): Promise<string[]> {
   // Use Node.js fs APIs for cross-platform compatibility (no Unix find command)
   const files = await readdir('.', { recursive: true });
 
+  // Normalize path separators first for consistent filtering across platforms
   return files
+    .map((f) => f.replace(/\\/g, '/'))
     .filter(
       (f) =>
         f.endsWith('.md') &&
-        !f.startsWith('node_modules') &&
-        !f.includes('/node_modules/') &&
-        !f.includes('\\node_modules\\')
-    )
-    .map((f) => f.replace(/\\/g, '/')); // Normalize path separators
+        !f.startsWith('node_modules/') &&
+        !f.includes('/node_modules/')
+    );
 }
