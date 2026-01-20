@@ -5,7 +5,7 @@ import { initConfigTool } from './init-config.js';
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 
 describe('initConfigTool', () => {
-  const testDir = './test-fixtures';
+  const testDir = `./test-fixtures-init-tool-${process.pid}-${Date.now()}`;
 
   const setup = () => {
     mkdirSync(testDir, { recursive: true });

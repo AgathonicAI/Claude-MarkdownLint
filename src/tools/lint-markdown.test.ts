@@ -5,7 +5,7 @@ import { lintMarkdownTool } from './lint-markdown.js';
 import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 
 describe('lintMarkdownTool', () => {
-  const testDir = './test-fixtures';
+  const testDir = `./test-fixtures-lint-${process.pid}-${Date.now()}`;
   const testFile = `${testDir}/test.md`;
 
   const setup = () => {

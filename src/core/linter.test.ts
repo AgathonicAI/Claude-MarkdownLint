@@ -5,7 +5,7 @@ import { runMarkdownlint, LintResult } from './linter.js';
 import { writeFileSync, mkdirSync, rmSync } from 'node:fs';
 
 describe('runMarkdownlint', () => {
-  const testDir = './test-fixtures';
+  const testDir = `./test-fixtures-linter-${process.pid}-${Date.now()}`;
   const testFile = `${testDir}/test.md`;
 
   // Setup and teardown

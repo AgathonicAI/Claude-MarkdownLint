@@ -5,7 +5,7 @@ import { initConfig, findExistingConfig, STARTER_CONFIG } from './config.js';
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 
 describe('findExistingConfig', () => {
-  const testDir = './test-fixtures';
+  const testDir = `./test-fixtures-config-find-${process.pid}-${Date.now()}`;
 
   const setup = () => {
     mkdirSync(testDir, { recursive: true });
@@ -38,7 +38,7 @@ describe('findExistingConfig', () => {
 });
 
 describe('initConfig', () => {
-  const testDir = './test-fixtures';
+  const testDir = `./test-fixtures-config-init-${process.pid}-${Date.now()}`;
 
   const setup = () => {
     mkdirSync(testDir, { recursive: true });

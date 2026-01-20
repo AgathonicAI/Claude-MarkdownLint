@@ -5,7 +5,7 @@ import { fixMarkdownTool } from './fix-markdown.js';
 import { writeFileSync, readFileSync, mkdirSync, rmSync } from 'node:fs';
 
 describe('fixMarkdownTool', () => {
-  const testDir = './test-fixtures';
+  const testDir = `./test-fixtures-fix-${process.pid}-${Date.now()}`;
   const testFile = `${testDir}/fixme.md`;
 
   const setup = () => {
