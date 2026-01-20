@@ -18,11 +18,11 @@ export async function execCommand(
     const { stdout, stderr } = await execFileAsync(command, args);
     return { stdout, stderr, exitCode: 0 };
   } catch (error: unknown) {
-    const execError = error as { stdout?: string; stderr?: string; code?: number };
+    const execError = error as { stdout?: string; stderr?: string; code?: number | string };
     return {
       stdout: execError.stdout ?? '',
       stderr: execError.stderr ?? '',
-      exitCode: execError.code ?? 1,
+      exitCode: typeof execError.code === 'number' ? execError.code : 127,
     };
   }
 }

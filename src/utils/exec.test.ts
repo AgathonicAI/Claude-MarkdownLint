@@ -19,4 +19,9 @@ describe('execCommand', () => {
     const result = await execCommand('node', ['-e', 'console.error("oops")']);
     assert.ok(result.stderr.includes('oops'));
   });
+
+  it('should return exitCode 127 for non-existent command', async () => {
+    const result = await execCommand('nonexistent-command-xyz', []);
+    assert.strictEqual(result.exitCode, 127);
+  });
 });
