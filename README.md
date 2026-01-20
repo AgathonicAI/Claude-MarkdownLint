@@ -26,7 +26,7 @@ claude plugins add AgathonicAI/claude-skill-markdownlint
 
 ## Commands
 
-### `/markdownlint:lint`
+### `/markdownlint:lint-markdown`
 
 Check markdown files for issues.
 
@@ -36,7 +36,7 @@ Check markdown files for issues.
 /markdownlint:lint --files README.md  # Lint specific files
 ```
 
-### `/markdownlint:fix`
+### `/markdownlint:fix-markdown`
 
 Fix markdown issues (auto-fix first, then Claude-assisted).
 
@@ -46,12 +46,12 @@ Fix markdown issues (auto-fix first, then Claude-assisted).
 /markdownlint:fix --files docs/*.md   # Fix specific files
 ```
 
-### `/markdownlint:init`
+### `/markdownlint:init-markdownlint`
 
 Create a starter `.markdownlint.jsonc` configuration.
 
 ```bash
-/markdownlint:init
+/markdownlint:init-markdownlint
 ```
 
 ## Proactive Linting
@@ -67,6 +67,7 @@ To disable proactive linting, disable the plugin's hooks in your Claude Code set
 Linting rules are configured in `.markdownlint.jsonc` (standard markdownlint config).
 
 Run `/markdownlint:init` to create a starter config with sensible defaults:
+
 - Disabled: MD013 (line length), MD033 (inline HTML), MD041 (first line heading)
 - Enabled: All other rules
 
@@ -95,7 +96,7 @@ The plugin provides an MCP server with these tools:
 
 ## Architecture
 
-```
+```text
 markdownlint/
 ├── .claude-plugin/plugin.json  # Plugin manifest
 ├── .mcp.json                   # MCP server config

@@ -24,7 +24,7 @@ function makeDeclinedKey(file: string, line: number, ruleId: string): string {
 const server = new Server(
   {
     name: 'markdownlint',
-    version: '1.0.0',
+    version: '1.0.1',
   },
   {
     capabilities: {

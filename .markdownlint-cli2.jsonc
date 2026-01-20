@@ -1,0 +1,12 @@
+{
+  // Extend the main markdownlint config
+  "config": {
+    "extends": ".markdownlint.jsonc"
+  },
+
+  // Ignore patterns
+  "ignores": [
+    "node_modules/",
+    "dist/"
+  ]
+}

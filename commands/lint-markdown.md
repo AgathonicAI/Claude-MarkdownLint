@@ -1,5 +1,5 @@
 ---
-name: lint
+name: lint-markdown
 description: Check markdown files for style and formatting issues
 allowed-tools:
   - mcp__plugin_markdownlint_markdownlint__lint_markdown
@@ -28,7 +28,8 @@ Check markdown files for issues using markdownlint.
 ## Example Output
 
 When issues are found:
-```
+
+```text
 Found 3 issues in 2 files:
 
 **README.md**
@@ -42,6 +43,7 @@ Found 3 issues in 2 files:
 ```
 
 When no issues:
-```
+
+```text
 All markdown files pass linting.
 ```
