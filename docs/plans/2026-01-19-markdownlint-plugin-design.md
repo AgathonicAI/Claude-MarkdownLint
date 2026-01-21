@@ -11,7 +11,7 @@ A Claude Code plugin that provides markdownlint capabilities - linting markdown 
 
 ## Plugin Structure
 
-```
+```text
 claude-skill-markdownlint/
 ├── plugin.json              # Plugin manifest
 ├── src/
@@ -53,6 +53,7 @@ claude-skill-markdownlint/
 Check markdown files for issues.
 
 **Parameters:**
+
 - `files` (optional): Array of file paths. Defaults to changed files via git.
 - `scope` (optional): `"changed"` | `"all"` | `"file"`. Defaults to `"changed"`.
 
@@ -65,6 +66,7 @@ Check markdown files for issues.
 Apply fixes to markdown issues.
 
 **Parameters:**
+
 - `files` (optional): Array of file paths. Defaults to changed files.
 - `auto_only` (optional): Boolean. If true, only apply markdownlint auto-fixes. Defaults to false.
 
@@ -87,12 +89,14 @@ Create starter `.markdownlint.jsonc` config.
 The plugin registers a hook that triggers linting after markdown edits.
 
 **Behavior:**
+
 - Fires after any `.md` file is edited
 - Runs `lint_markdown` on just that file
 - If no issues, produces no output (silent on success)
 - If issues found, Claude receives structured results and can offer fixes
 
 **User control:**
+
 - Hooks can be disabled per-project via `.claude/settings.json`
 - User can run `/markdownlint` manually regardless of hook state
 - Hook respects `<!-- markdownlint-disable -->` in files

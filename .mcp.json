@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "markdownlint": {
+      "command": "node",
+      "args": ["dist/server.js"],
+      "cwd": "/data/Development/claude-skill-markdownlint"
+    }
+  }
+}

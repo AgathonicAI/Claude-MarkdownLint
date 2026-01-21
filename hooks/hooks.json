@@ -1,28 +1,28 @@
 {
-  "description": "Markdownlint plugin hooks: auto-setup and proactive linting",
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/scripts/setup.sh",
-            "timeout": 120
-          }
+    "description": "Markdownlint plugin hooks: auto-setup and proactive linting",
+    "hooks": {
+        "SessionStart": [
+            {
+                "matcher": "*",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bash ${CLAUDE_PLUGIN_ROOT}/scripts/setup.sh",
+                        "timeout": 120
+                    }
+                ]
+            }
+        ],
+        "PostToolUse": [
+            {
+                "matcher": "Edit|Write",
+                "hooks": [
+                    {
+                        "type": "prompt",
+                        "prompt": "Check the file path in the tool input. If it does NOT end with .md or .MD, do nothing and produce no output, but continue with the normal response. If it ends with .md or .MD, call lint_markdown on that file. If issues found, report briefly and offer to fix. If no issues, produce no output. After the first accepted offer to fix, continue to test and fix until no issues remain. Then continue with normal response."
+                    }
+                ]
+            }
         ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "prompt",
-            "prompt": "Check the file path in the tool input. If it does NOT end with .md or .MD, do nothing and produce no output. If it ends with .md or .MD, call lint_markdown on that file. If issues found, report briefly and offer to fix. If no issues, produce no output."
-          }
-        ]
-      }
-    ]
-  }
+    }
 }

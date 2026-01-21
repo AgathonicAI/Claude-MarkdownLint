@@ -10,14 +10,15 @@
 
 ---
 
-### Task 1: Project Setup
+## Task 1: Project Setup
 
 **Files:**
+
 - Create: `package.json`
 - Create: `tsconfig.json`
 - Create: `.gitignore`
 
-**Step 1: Create package.json**
+### Step 1: Create package.json
 
 ```json
 {
@@ -43,7 +44,7 @@
 }
 ```
 
-**Step 2: Create tsconfig.json**
+### Step 2: Create tsconfig.json
 
 ```json
 {
@@ -63,21 +64,21 @@
 }
 ```
 
-**Step 3: Create .gitignore**
+### Step 3: Create .gitignore
 
-```
+```text
 node_modules/
 dist/
 *.log
 .DS_Store
 ```
 
-**Step 4: Install dependencies**
+### Step 4: Install dependencies
 
 Run: `npm install`
 Expected: node_modules created, package-lock.json generated
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add package.json tsconfig.json .gitignore package-lock.json
@@ -86,12 +87,13 @@ git commit -m "chore: initialize project with TypeScript and dependencies"
 
 ---
 
-### Task 2: Plugin Manifest
+## Task 2: Plugin Manifest
 
 **Files:**
+
 - Create: `plugin.json`
 
-**Step 1: Create plugin.json**
+### Step 1: Create plugin.json
 
 ```json
 {
@@ -116,7 +118,7 @@ git commit -m "chore: initialize project with TypeScript and dependencies"
 }
 ```
 
-**Step 2: Commit**
+### Step 2: Commit
 
 ```bash
 git add plugin.json
@@ -125,13 +127,14 @@ git commit -m "chore: add plugin manifest"
 
 ---
 
-### Task 3: Utility - Command Execution
+## Task 3: Utility - Command Execution
 
 **Files:**
+
 - Create: `src/utils/exec.ts`
 - Create: `src/utils/exec.test.ts`
 
-**Step 1: Write the failing test for execCommand**
+### Step 1: Write the failing test for execCommand
 
 ```typescript
 // src/utils/exec.test.ts
@@ -158,12 +161,12 @@ describe('execCommand', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './exec.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/utils/exec.ts
@@ -196,12 +199,12 @@ export async function execCommand(
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/utils/exec.ts src/utils/exec.test.ts
@@ -210,13 +213,14 @@ git commit -m "feat: add execCommand utility with execFile for security"
 
 ---
 
-### Task 4: Utility - Prerequisite Checker
+## Task 4: Utility - Prerequisite Checker
 
 **Files:**
+
 - Create: `src/utils/prerequisites.ts`
 - Create: `src/utils/prerequisites.test.ts`
 
-**Step 1: Write the failing test for checkPrerequisites**
+### Step 1: Write the failing test for checkPrerequisites
 
 ```typescript
 // src/utils/prerequisites.test.ts
@@ -241,12 +245,12 @@ describe('checkPrerequisites', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './prerequisites.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/utils/prerequisites.ts
@@ -294,12 +298,12 @@ export async function checkPrerequisites(): Promise<PrerequisiteResult> {
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/utils/prerequisites.ts src/utils/prerequisites.test.ts
@@ -308,13 +312,14 @@ git commit -m "feat: add prerequisite checker for npx availability"
 
 ---
 
-### Task 5: Utility - Git Integration
+## Task 5: Utility - Git Integration
 
 **Files:**
+
 - Create: `src/utils/git.ts`
 - Create: `src/utils/git.test.ts`
 
-**Step 1: Write the failing test for getChangedMarkdownFiles**
+### Step 1: Write the failing test for getChangedMarkdownFiles
 
 ```typescript
 // src/utils/git.test.ts
@@ -345,12 +350,12 @@ describe('getChangedMarkdownFiles', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './git.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/utils/git.ts
@@ -420,12 +425,12 @@ async function getAllMarkdownFiles(): Promise<string[]> {
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/utils/git.ts src/utils/git.test.ts
@@ -434,13 +439,14 @@ git commit -m "feat: add git utilities for detecting changed markdown files"
 
 ---
 
-### Task 6: Core - Markdownlint Runner
+## Task 6: Core - Markdownlint Runner
 
 **Files:**
+
 - Create: `src/core/linter.ts`
 - Create: `src/core/linter.test.ts`
 
-**Step 1: Write the failing test for runMarkdownlint**
+### Step 1: Write the failing test for runMarkdownlint
 
 ```typescript
 // src/core/linter.test.ts
@@ -491,12 +497,12 @@ describe('runMarkdownlint', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './linter.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/core/linter.ts
@@ -608,12 +614,12 @@ function parseMarkdownlintOutput(output: string, files: string[]): LintIssue[] {
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/core/linter.ts src/core/linter.test.ts
@@ -622,13 +628,14 @@ git commit -m "feat: add markdownlint runner with JSON output parsing"
 
 ---
 
-### Task 7: Core - Auto Fixer
+## Task 7: Core - Auto Fixer
 
 **Files:**
+
 - Create: `src/core/fixer.ts`
 - Create: `src/core/fixer.test.ts`
 
-**Step 1: Write the failing test for autoFix**
+### Step 1: Write the failing test for autoFix
 
 ```typescript
 // src/core/fixer.test.ts
@@ -681,12 +688,12 @@ describe('autoFix', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './fixer.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/core/fixer.ts
@@ -740,12 +747,12 @@ export async function autoFix(files: string[]): Promise<FixResult> {
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/core/fixer.ts src/core/fixer.test.ts
@@ -754,13 +761,14 @@ git commit -m "feat: add auto-fixer with remaining issue detection"
 
 ---
 
-### Task 8: Core - Config Initializer
+## Task 8: Core - Config Initializer
 
 **Files:**
+
 - Create: `src/core/config.ts`
 - Create: `src/core/config.test.ts`
 
-**Step 1: Write the failing test for initConfig**
+### Step 1: Write the failing test for initConfig
 
 ```typescript
 // src/core/config.test.ts
@@ -838,12 +846,12 @@ describe('initConfig', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './config.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/core/config.ts
@@ -916,12 +924,12 @@ export async function initConfig(directory: string): Promise<InitConfigResult> {
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/core/config.ts src/core/config.test.ts
@@ -930,13 +938,14 @@ git commit -m "feat: add config initializer with starter template"
 
 ---
 
-### Task 9: MCP Tools - lint_markdown
+## Task 9: MCP Tools - lint_markdown
 
 **Files:**
+
 - Create: `src/tools/lint-markdown.ts`
 - Create: `src/tools/lint-markdown.test.ts`
 
-**Step 1: Write the failing test for lintMarkdownTool**
+### Step 1: Write the failing test for lintMarkdownTool
 
 ```typescript
 // src/tools/lint-markdown.test.ts
@@ -988,12 +997,12 @@ describe('lintMarkdownTool', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './lint-markdown.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/tools/lint-markdown.ts
@@ -1099,12 +1108,12 @@ function formatSummary(issues: LintIssue[], autoFixableCount: number): string {
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/tools/lint-markdown.ts src/tools/lint-markdown.test.ts
@@ -1113,13 +1122,14 @@ git commit -m "feat: add lint_markdown MCP tool"
 
 ---
 
-### Task 10: MCP Tools - fix_markdown
+## Task 10: MCP Tools - fix_markdown
 
 **Files:**
+
 - Create: `src/tools/fix-markdown.ts`
 - Create: `src/tools/fix-markdown.test.ts`
 
-**Step 1: Write the failing test for fixMarkdownTool**
+### Step 1: Write the failing test for fixMarkdownTool
 
 ```typescript
 // src/tools/fix-markdown.test.ts
@@ -1173,12 +1183,12 @@ describe('fixMarkdownTool', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './fix-markdown.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/tools/fix-markdown.ts
@@ -1294,12 +1304,12 @@ function formatFixSummary(
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/tools/fix-markdown.ts src/tools/fix-markdown.test.ts
@@ -1308,13 +1318,14 @@ git commit -m "feat: add fix_markdown MCP tool"
 
 ---
 
-### Task 11: MCP Tools - init_markdownlint_config
+## Task 11: MCP Tools - init_markdownlint_config
 
 **Files:**
+
 - Create: `src/tools/init-config.ts`
 - Create: `src/tools/init-config.test.ts`
 
-**Step 1: Write the failing test for initConfigTool**
+### Step 1: Write the failing test for initConfigTool
 
 ```typescript
 // src/tools/init-config.test.ts
@@ -1363,12 +1374,12 @@ describe('initConfigTool', () => {
 });
 ```
 
-**Step 2: Run test to verify it fails**
+### Step 2: Run test to verify it fails
 
 Run: `npm run build && npm test`
 Expected: FAIL with "Cannot find module './init-config.js'"
 
-**Step 3: Write minimal implementation**
+### Step 3: Write minimal implementation
 
 ```typescript
 // src/tools/init-config.ts
@@ -1419,12 +1430,12 @@ export async function initConfigTool(
 }
 ```
 
-**Step 4: Run test to verify it passes**
+### Step 4: Run test to verify it passes
 
 Run: `npm run build && npm test`
 Expected: PASS
 
-**Step 5: Commit**
+### Step 5: Commit
 
 ```bash
 git add src/tools/init-config.ts src/tools/init-config.test.ts
@@ -1433,12 +1444,13 @@ git commit -m "feat: add init_markdownlint_config MCP tool"
 
 ---
 
-### Task 12: Plugin Entry Point
+## Task 12: Plugin Entry Point
 
 **Files:**
+
 - Create: `src/index.ts`
 
-**Step 1: Create the main entry point that exports all tools**
+### Step 1: Create the main entry point that exports all tools
 
 ```typescript
 // src/index.ts
@@ -1465,12 +1477,12 @@ export type { LintIssue, LintResult } from './core/linter.js';
 export type { FixResult } from './core/fixer.js';
 ```
 
-**Step 2: Build and verify**
+### Step 2: Build and verify
 
 Run: `npm run build`
 Expected: Compiles without errors, dist/index.js created
 
-**Step 3: Commit**
+### Step 3: Commit
 
 ```bash
 git add src/index.ts
@@ -1479,15 +1491,16 @@ git commit -m "feat: add plugin entry point exporting all tools"
 
 ---
 
-### Task 13: Update CLAUDE.md and README
+## Task 13: Update CLAUDE.md and README
 
 **Files:**
+
 - Modify: `CLAUDE.md`
 - Modify: `README.md`
 
-**Step 1: Update CLAUDE.md with build commands and architecture**
+### Step 1: Update CLAUDE.md with build commands and architecture
 
-```markdown
+````markdown
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
@@ -1506,7 +1519,7 @@ A Claude Code plugin that provides markdownlint capabilities - linting markdown 
 
 ## Architecture
 
-```
+```text
 src/
 ├── index.ts              # Plugin entry point, exports all tools
 ├── utils/
@@ -1528,11 +1541,11 @@ src/
 - **lint_markdown** - Check markdown files for issues
 - **fix_markdown** - Auto-fix issues, report remaining for Claude assistance
 - **init_markdownlint_config** - Create starter .markdownlint.jsonc
-```
+````
 
-**Step 2: Update README.md with installation and usage**
+### Step 2: Update README.md with installation and usage
 
-```markdown
+````markdown
 # claude-skill-markdownlint
 
 A Claude Code plugin for linting and fixing markdown files using markdownlint.
@@ -1559,7 +1572,7 @@ The plugin provides three tools:
 
 Check markdown files for issues.
 
-```
+```text
 /markdownlint check
 ```
 
@@ -1567,7 +1580,7 @@ Check markdown files for issues.
 
 Fix markdown issues (auto-fix first, then Claude-assisted).
 
-```
+```text
 /markdownlint fix
 ```
 
@@ -1575,7 +1588,7 @@ Fix markdown issues (auto-fix first, then Claude-assisted).
 
 Create a starter `.markdownlint.jsonc` configuration.
 
-```
+```text
 /markdownlint init
 ```
 
@@ -1592,9 +1605,9 @@ Plugin behavior is configured in `.claude/plugins/markdownlint.json`:
 ```
 
 Linting rules are configured in `.markdownlint.jsonc` (standard markdownlint config).
-```
+````
 
-**Step 3: Commit**
+### Step 3: Commit
 
 ```bash
 git add CLAUDE.md README.md
@@ -1603,29 +1616,29 @@ git commit -m "docs: update CLAUDE.md and README with usage instructions"
 
 ---
 
-### Task 14: Final Verification
+## Task 14: Final Verification
 
-**Step 1: Clean build**
+### Step 1: Clean build
 
 Run: `rm -rf dist && npm run build`
 Expected: Clean compile, no errors
 
-**Step 2: Run all tests**
+### Step 2: Run all tests
 
 Run: `npm test`
 Expected: All tests pass
 
-**Step 3: Verify plugin structure**
+### Step 3: Verify plugin structure
 
 Run: `ls -la dist/ && cat plugin.json`
 Expected: All expected files present
 
-**Step 4: Test lint on own docs**
+### Step 4: Test lint on own docs
 
 Run: `npm run lint`
 Expected: Either passes or shows expected issues
 
-**Step 5: Final commit if any changes**
+### Step 5: Final commit if any changes
 
 ```bash
 git status
