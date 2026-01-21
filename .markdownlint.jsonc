@@ -14,5 +14,6 @@
   "MD031": true,            // Fenced code needs blank lines
   "MD047": true,             // File should end with newline
   "MD060": true,            // Table Column Style
-  "MD032": true            // Lists should be surrounded by blank lines
+  "MD032": true,            // Lists should be surrounded by blank lines
+  "MD024": { "siblings_only": true }  // Allow duplicate headings under different parents
 }
